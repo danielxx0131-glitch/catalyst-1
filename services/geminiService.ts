@@ -2,7 +2,7 @@
 import { GoogleGenAI, Type } from "@google/genai";
 import { InquiryData } from "../types";
 
-const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+const ai = new GoogleGenAI({ apiKey: process.env.API_KEY || 'FAKE_API_KEY_FOR_DEVELOPMENT' });
 
 export const processInquiryWithAI = async (data: InquiryData) => {
   try {
@@ -36,6 +36,6 @@ export const processInquiryWithAI = async (data: InquiryData) => {
     return response.text;
   } catch (error) {
     console.error("AI processing failed", error);
-    return "您的申請已收到。我們將儘速為您發送身分核實（KYC）指引，請留意您的電子郵件信箱。";
+    return "æ¨çç³è«å·²æ¶å°ãæåå°åéçºæ¨ç¼éèº«åæ ¸å¯¦ï¼KYCï¼æå¼ï¼è«çææ¨çé»å­éµä»¶ä¿¡ç®±ã";
   }
 };
